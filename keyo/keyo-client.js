@@ -3,7 +3,7 @@ const encoder = new TextEncoder();
 const decoder = new TextDecoder();
 const DAY_MS = 24 * 60 * 60 * 1000;
 const DEFAULT_REFRESH_MS = 60 * 60 * 1000;
-const DENIED = new Set(['SUSPENDED', 'REVOKED', 'DELETED', 'EXPIRED', 'INVALID_ENTITLEMENT']);
+const DENIED = new Set(['SUSPENDED', 'REVOKED', 'DELETED', 'EXPIRED', 'INVALID_ENTITLEMENT', 'INVALID_PROJECT']);
 
 function decode(value) {
   if (typeof value !== 'string' || !/^[A-Za-z0-9_-]+$/.test(value)) throw new Error('Bad token encoding');
@@ -194,7 +194,7 @@ export default KeyoClient;
 export function createKeyoClient(accountId) {
   return new KeyoClient({ ...{
   "endpoint": "https://keyo.mazendev.com",
-  "projectId": "demo",
+  "projectId": "prj_4edf906e4bcd4d00aba3b95af35435bd",
   "publicKey": {
     "key_ops": [
       "verify"
